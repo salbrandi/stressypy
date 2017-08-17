@@ -65,7 +65,7 @@ def create_job(cpu_width, time_height):
 
 
 
-def test_loader(rand_list=[], cpuse = True):
+def test_loader(rand_list=[], cpuse=True):
     machine_available_cores = mp.cpu_count()
 
     num_tests = 1
