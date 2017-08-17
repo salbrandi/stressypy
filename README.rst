@@ -17,8 +17,8 @@ or cloned manually and setup with ``python setup.py install``
 +------------------------+-------------------------------------------+
 | Unix Distro            | Command                                   |
 +========================+===========================================+
-| Debian                 | `sudo apt-get install stress stress-ng`   |
+| Debian                 | ``sudo apt-get install stress stress-ng``   |
 +------------------------+-------------------------------------------+
-| body row 2             | `pacman -S stress stress-ng`              |
+| body row 2             | ``pacman -S stress stress-ng``              |
 +------------------------+-------------------------------------------+
 
