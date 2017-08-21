@@ -19,7 +19,7 @@ setup(
     long_description=long_description,
     entry_points='''
         [console_scripts]
-        stressy=stressypy.clic:stressy
+        stressy=stressypy.cli:stressy
         ''',
     classifiers=[
         'Development Status :: 3 - Alpha',

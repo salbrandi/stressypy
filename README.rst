@@ -1,5 +1,5 @@
-A package to stress a specific number of cpus for a certain length of time
-==========================================================================
+A package to stress one or more cores
+=====================================
 
 ``stressypy`` uses the unix package ``stress`` and/or ``stress-ng`` to to stress a certain number of cpus for a certain amount
 of time.
@@ -19,6 +19,14 @@ or cloned manually and setup with ``python setup.py install``
 +========================+===========================================+
 | Debian                 | `sudo apt-get install stress stress-ng`   |
 +------------------------+-------------------------------------------+
-| body row 2             | `pacman -S stress stress-ng`              |
+| Arch Linux             | `pacman -S stress stress-ng`              |
 +------------------------+-------------------------------------------+
 
+
+Directions
+++++++++++
+
+``stressypy`` runs using the command ``stressy stress`` with the number of cpus and tieme passed as arguments
+
+``stressy stress 1 1`` stresses one core for 1 second
+``stressy stress 7 3`` stresses 7 cores for 3 second
