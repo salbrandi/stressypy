@@ -41,7 +41,7 @@ class JobBlock:
             self.func_kwargs = kwargs
             self.job = '{0}({1}, {2})'.format(func, args, kwargs)
         else:
-            raise ValueError('for setjob(func, arg): func is not a function')
+            raise ValueError('for set_job(func, arg): func is not a function')
 
     def run(self):
         if self.job is not None:

@@ -39,9 +39,9 @@ or cloned manually and setup with ``python setup.py install``
 +------------------------+-------------------------------------------+
 | Unix Distro            | Command                                   |
 +========================+===========================================+
-| Debian                 | `sudo apt-get install stress`          |
+| Debian                 | `sudo apt-get install stress`             |
 +------------------------+-------------------------------------------+
-| Arch Linux             | `pacman -S stress`                     |
+| Arch Linux             | `pacman -S stress`                        |
 +------------------------+-------------------------------------------+
 
 
