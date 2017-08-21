@@ -19,7 +19,8 @@ def stressy():
 @click.argument('time')
 @click.option('-n', default=1)
 def create_stress_jobs(num_cpus, time, n):
-    create_job(int(num_cpus), int(time))
+    job = create_job(int(num_cpus), int(time))
+    job.run()
 
 stressy.add_command(create_stress_jobs, name='stress')
 

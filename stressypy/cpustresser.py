@@ -12,38 +12,40 @@ stress_string = 'stress -c {0} -t {1}s'
 
 class JobBlock:
     """
-
+    A convenient class to hold all the relevant information about the dummy cpu loads for rqpop
     """
 
     total_blocks = 0
     queued_blocks = 0
     waiting_blocks = 0
 
-    def __init__(self, n_cpu, t_run, delta_t_run=0.025, q_name='default'):
+    def __init__(self, n_cpu, t_run, delta_t_run=0.009, q_name='default'):
         self.n_cpu = n_cpu
         self.time = t_run
         self.delta_time = delta_t_run
         self.state = 'waiting'
         self.func = None
-        self.func_args = ''
+        self.func_args = []
+        self.func_kwargs = {}
         self.area = n_cpu*t_run
-        self.total_blocks += 1
+        JobBlock.total_blocks += 1
         self.queue = q_name
         self.job = None
         if self.n_cpu > mp.cpu_count():
             self.n_cpu = mp.cpu_count()
 
-    def set_job(self, func, *args):
+    def set_job(self, func, *args, **kwargs):
         if type(func) == FunctionType:
             self.func = func
-            self.args = args
-            self.job = func( *args )
+            self.func_args = args
+            self.func_kwargs = kwargs
+            self.job = '{0}({1}, {2})'.format(func, args, kwargs)
         else:
             raise ValueError('for setjob(func, arg): func is not a function')
 
     def run(self):
         if self.job is not None:
-            exec(self.job)
+            self.func(*self.func_args, **self.func_kwargs)
 
 
 def get_time_used(func, *args):
@@ -58,9 +60,10 @@ def create_job(cpu_width, time_height):
     :param time_height: amount of time
     :return: the JobBlock object
     """
+
     shell_command = stress_string.format(cpu_width, time_height)
     job = JobBlock(cpu_width, time_height)
-    job.set_job(lambda: subprocess.call(shell_command, shell=True))
+    job.set_job(subprocess.call, shell_command, shell=True)
     return job
 
 

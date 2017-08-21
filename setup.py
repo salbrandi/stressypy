@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='stressypy',
     packages=find_packages(),
-    version='0.0.4',
+    version='0.0.8',
     author='Salvador Brandi',
     author_email='salbrandi@gmail.com',
     url='https://github.com/salbrandi/stressypy',
@@ -17,6 +17,7 @@ setup(
     py_modules=['cpustresser'],
     description='A simple program for calling stress and/or stress-ng from python',
     long_description=long_description,
+    install_requires='click',
     entry_points='''
         [console_scripts]
         stressy=stressypy.cli:stressy
