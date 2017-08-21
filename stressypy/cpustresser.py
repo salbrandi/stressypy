@@ -54,9 +54,9 @@ def get_time_used(func, *args):
 
 def create_job(cpu_width, time_height):
     """
-    :param cpu_width:
-    :param time_height:
-    :return:
+    :param cpu_width: number of cpus
+    :param time_height: amount of time
+    :return: the JobBlock object
     """
     shell_command = stress_string.format(cpu_width, time_height)
     job = JobBlock(cpu_width, time_height)
