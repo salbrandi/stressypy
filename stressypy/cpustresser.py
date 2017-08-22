@@ -19,7 +19,7 @@ class JobBlock:
     queued_blocks = 0
     waiting_blocks = 0
 
-    def __init__(self, n_cpu, t_run, delta_t_run=0.009, q_name='default'):
+    def __init__(self, n_cpu, t_run, delta_t_run=0.009, q_name='default', name='job'):
         self.n_cpu = n_cpu
         self.time = t_run
         self.delta_time = delta_t_run
@@ -29,6 +29,7 @@ class JobBlock:
         self.func_kwargs = {}
         self.area = n_cpu*t_run
         JobBlock.total_blocks += 1
+        self.id = "{0}{1}".format(name, total_blocks)
         self.queue = q_name
         self.job = None
         if self.n_cpu > mp.cpu_count():
