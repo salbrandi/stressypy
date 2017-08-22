@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 setup(
     name='stressypy',
     packages=find_packages(),
-    version='0.0.9',
+    version='0.0.10',
     author='Salvador Brandi',
     author_email='salbrandi@gmail.com',
     url='https://github.com/salbrandi/stressypy',
