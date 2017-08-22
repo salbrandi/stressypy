@@ -8,23 +8,32 @@ stress loads to test queueing algorithms.
 JobBlock Attributes:
 ++++++++++++++++++++
 
-class attributes
-----------------
-* total_blocks: the number of blocks created
-* waiting_blocks: the number of blocks waiting to be queued - in box
-* queued_blocks: the number of blocks waiting to be executed - in queue
+The JobBlock class is used to store any function and its cpu width and time height.
 
 instance attributes
 -------------------
 * n_cpu: number of cpus being stressed
 * t_run: the time it will take to run the job
-* delta_t_run: the time the processor will take to run the job; overhead time
-* state: the state of the block
 * func: the function the block is storing
 * func_args: the arguments for the function the block is storing
-* area: the 'area' as width in cpu vs height in time
-* queue: the queue the block will be sent to
 * job: a combination of the func and arg to return the complete job that the block should execute
+
++------------------------+-----------------------------------------------------------------------------------------------------+
+| attribute type         | description                                                                                         |
++========================+=====================================================================================================+
+| input                  | n_cpu: number of cpus being stressed                                                                |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| input                  | t_run: the time it will take to run the job                                                         |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| set with set_job()     | func: the function the block is storing                                                             |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| set with set_job()     | func_args: the arguments for the function the block is storing                                      |
++------------------------+-----------------------------------------------------------------------------------------------------+
+| calculated             |  job: a combination of the func and arg to return the complete job that the block should execute    |
++------------------------+-----------------------------------------------------------------------------------------------------+
+
+
+
 
 
 Installation
